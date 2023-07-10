@@ -31,24 +31,23 @@ namespace ShapeTracker.Models
             _side3 = newValue;
         }
 
-        public string CheckType()
-        {
-            if ((Side1 > (Side2 + _side3)) || (Side2 > (Side1 + _side3)) || (_side3 > (Side1 + Side2)))
-            {
-                return "not a triangle";
-            }
-            else if ((Side1 != Side2) && ((Side1 != _side3)) && ((Side2 != _side3)))
-            {
-                return "scalene triangle";
-            }
-            else
-            {
-                return "";
-            }
-        }
+      public string CheckType()
+    {
+      if ((Side1 > (Side2 + _side3)) || (Side2 > (Side1 + _side3)) || (_side3 > (Side1 + Side2))) 
+      {
+        return "not a triangle";
+      } 
+      else if ((Side1 != Side2) && ((Side1 != _side3)) && ((Side2 != _side3))) 
+      {
+        return "scalene triangle";
+      }
+      else 
+      {
+        return "isosceles triangle";
+      }
     }
+  }
 }
-
 
 
 
