@@ -9,6 +9,7 @@ namespace ShapeTracker.Models
     {
 
         get { return _side1; }
+        set { _side1 = value; }
     }
 
     public Triangle(int length1)
