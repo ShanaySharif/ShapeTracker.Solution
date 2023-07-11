@@ -1,37 +1,38 @@
-// using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace ShapeTracker.Models
 {
-    public class Triangle
+  public class Triangle
+  {
+    private int _side1;
+    public int Side1
     {
-        private int _side1;
-        public int Side1
-        {
+      get { return _side1; }
+      set { _side1 = value; }
+    }
+    public int Side2 { get; set; }
+    private int _side3;
+    private static List<Triangle> _instances = new List<Triangle> {};
 
-            get { return _side1; }
-            set { _side1 = value; }
-        }
-        public int Side2 { get; set; }
-        private int _side3;
+    public Triangle(int length1, int length2, int length3)
+    {
+      _side1 = length1;
+      Side2 = length2;
+      _side3 = length3;
+      _instances.Add(this);
+    }
 
-        public Triangle(int length1, int length2, int length3)
-        {
+    public int GetSide3()
+    {
+      return _side3;
+    }
 
-            _side1 = length1;
-            Side2 = length2;
-            _side3 = length3;
-        }
-        public int GetSide3()
-        {
-            return _side3;
-        }
+    public void SetSide3(int newValue)
+    {
+      _side3 = newValue;
+    }
 
-        public void SetSide3(int newValue)
-        {
-            _side3 = newValue;
-        }
-
-      public string CheckType()
+    public string CheckType()
     {
       if ((Side1 > (Side2 + _side3)) || (Side2 > (Side1 + _side3)) || (_side3 > (Side1 + Side2)))
       {
@@ -50,10 +51,20 @@ namespace ShapeTracker.Models
         return "isosceles triangle";
       }
     }
+
+    public static List<Triangle> GetAll()
+    {
+      return _instances;
+    }
+    public static void ClearAll()
+    {
+      _instances.Clear();
+    }
+
   }
 }
 
-
+  
 
 
 
